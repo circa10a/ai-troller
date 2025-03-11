@@ -3,7 +3,7 @@
 A web server tarpit that slowly streams dumb data to pollute AI training bots. Based on [caddy-defender](https://github.com/JasonLovesDoggo/caddy-defender)
 
 ![Build Status](https://github.com/circa10a/ai-troller/workflows/deploy/badge.svg)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/circa10a/ai-troller)
+![GitHub release (latest by date)](https://img.shields.io/github/v/tag/circa10a/ai-troller)
 
 ![alt text](https://s3.gifyu.com/images/bbjVl.gif)
 
