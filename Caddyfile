@@ -1,0 +1,18 @@
+{
+	admin off
+	auto_https off
+	order defender after header
+	debug
+}
+
+:8080 {
+	defender tarpit {
+		ranges all
+		tarpit_config {
+			content {$TROLL_CONTENT:file:///crack.txt}
+			timeout {$TROLL_TIMEOUT:30s}
+			bytes_per_second {$TROLL_BYTES_PER_SECOND:24}
+			response_code {$TROLL_RESPONSE_CODE:200}
+		}
+	}
+}

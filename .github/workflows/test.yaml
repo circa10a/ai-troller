@@ -1,0 +1,31 @@
+name: test
+
+on: [
+  pull_request
+]
+
+jobs:
+  lint-caddyfile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Go
+        uses: actions/setup-go@v5
+      - name: Install caddy
+        run: go install github.com/caddyserver/caddy/v2/cmd/caddy@latest
+      - name: Lint Caddyfile
+        run: caddy fmt --diff
+  docker-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Docker Build
+        id: docker-build
+        uses: docker/build-push-action@v6
+        with:
+          push: false
+          tags: ${{ github.repository }}
+          platforms: ${{ env.PLATFORMS }}
