@@ -1,0 +1,6 @@
+services:
+  ai-troller:
+    container_name: ai-troller
+    image: circa10a/ai-troller
+    ports:
+      - 8080:8080
